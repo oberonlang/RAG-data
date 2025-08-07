@@ -106,7 +106,7 @@ END M.
     7     E3E09001    MVN    R9 R0 1
     8     E1E09A19    MVN    R9 R0 R9 LSL R10
     9     E3E08000    MVN    R8 R0 0
-    10    E0090B18    AND    R0 R9 R8 LSL R11    s0 := {m .. n}     |
+    10    E0090B18    AND    R0 R9 R8 LSL R11    s0 := {m .. n}
     
     11    E09B900A    ADD    R9 R11 R10          R9 := m+n
     12    E05B800A    SUB    R8 R11 R10          R8 := m-n
