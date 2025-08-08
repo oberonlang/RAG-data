@@ -26,7 +26,7 @@ Experimental computers developed as prototypes, usually at universities, between
 
 ## Pioneering Years
 
-It was in 1959 in Québec, Canada, when I first dealt with a computer. I had registered in a course on Numerical Analysis, taught by Prof. Goodspeed. But the computer was not up to the professor's name. In fact, it was not only slow, but "down" whenever we had concocted a small program as part of an exercise. Hence, my first encounter with a computer was dismal and discouraging. I cannot explain how I kept up my interest in computing. But I sensed it would be important in the future.
+It was in 1959 in Québec, Canada, when I first dealt with a computer. I had registered in a course on Numerical Analysis, taught by Prof. Goodspeed. But the computer was not up to the professor's name. In fact, it was not only slow, but "down" whenever we had concocted a small program as part of an exercise. Hence, my first encounter with a computer was dismal and discouraging. I cannot explain how I kept up my interest in computing. But I sensed it would be important in the future.
 
 The available computer was an Alwac III-3E. It rested on several thousands of electronic tubes, mostly double triodes, and it occupied a full room. A tube had typically a life-time of 10'000 hours. Hence, you could reckon that one — and thereby the entire system — would die every few hours. And it did! Programming was done by constructing tables of instructions in hexadecimal code. I thought there was potential for improvement.
 
@@ -130,7 +130,7 @@ The company that first picked up the challenge was CDC (Control Data Corporation
 
 The CDC 6000 architecture is briefly sketched as follows. The memory consists of 262144 (= 2<sup>18</sup>) 60-bit words, and the processor contains three sets of 8 registers.
 
-The data registers X0 – X7 are 60 bits wide, the address registers A0 – A7, and the index registers B0 – B7 are 18 bits wide. Instructions are either 15 or 30 bits long, 2, 3, or 4 fitting into a 60-bit word.
+The data registers X0 – X7 are 60 bits wide, the address registers A0 – A7, and the index registers B0 – B7 are 18 bits wide. Instructions are either 15 or 30 bits long, 2, 3, or 4 fitting into a 60-bit word.
 
 ![Figure 3](fig3.svg)
 
@@ -171,7 +171,7 @@ In order to translate expressions of Algol's generality into sequences of simple
 
 This allows a straight-forward evaluation, if operands can be stacked (pushed onto a first-in-last-out stack). Then operators simply replace operands by the result. Computer designers therefore accommodated compiler designers by providing a push-down stack in place of a register array. Effectively, the stack is an array with implied up-down counter used as index, and the net effect is that register numbers can be omitted in the code. This leads to denser code.
 
-The idea of a (hardware) stack appeared as very attractive, and both the British GE KDF9 and the Dutch Electronica X8 implemented it. The Burroughs B5000 also adopted the concept, implementing the top two elements as registers. Transfer of lower elements of the stack to and from memory was automated by a fairly complex scheme.
+The idea of a (hardware) stack appeared as very attractive, and both the British GE KDF9 and the Dutch Electronica X8 implemented it. The Burroughs B5000 also adopted the concept, implementing the top two elements as registers. Transfer of lower elements of the stack to and from memory was automated by a fairly complex scheme.
 
 It is noteworthy that the B5000 used the same encoding for integers and real numbers with a 39-bit mantissa, a 6-bit exponent, and a base B = 8, integers with exponent = 0. The program code consists of 12-bit syllables, 4 to a word.
 
@@ -222,7 +222,7 @@ In most cases, computer engineers had little notion about languages and compiler
 
 IBM's System 360 was announced in 1964. It brought two other innovations. The first was the notion of a computer *family*. Up to this time, every computer had its own structure and performance; it was sort of unique. Now System 360 consisted of many incarnations of one and the same instruction set. Each incarnation, called *model*, had its distinct performance figures, size and price. But all of them looked the same to the programmer. In this sense they formed a family; they featured the same *architecture*. This is where the word architecture in connection with computers appeared.
 
-It goes without saying that the different models had very different implementations of the hardware, although they were handling the same software. For the first time, the technique of emulation was used extensively. The smaller models used the novel technique of micro-programs. The genuine hardware always interpreted the same program, namely an interpreter of the 360 instruction set. The interpreter was defined in so-called microcode. This micro-code rested in a small but very fast microcode memory, typically a read-only memory implemented in a proprietary technology. The consequence was that some of the 360's instructions were fast, others slow in comparison. It was possible to include some very complex and hard to understand instructions. Some of them even included loops in the micro-code.
+It goes without saying that the different models had very different implementations of the hardware, although they were handling the same software. For the first time, the technique of emulation was used extensively. The smaller models used the novel technique of micro-programs. The genuine hardware always interpreted the same program, namely an interpreter of the 360 instruction set. The interpreter was defined in so-called microcode. This micro-code rested in a small but very fast microcode memory, typically a read-only memory implemented in a proprietary technology. The consequence was that some of the 360's instructions were fast, others slow in comparison. It was possible to include some very complex and hard to understand instructions. Some of them even included loops in the micro-code.
 
 The second novelty was that the smallest individually addressable unit in memory was not the word, but the *byte*, and that this byte consisted of 8 bits. So far, that unit was considered as consisting of 6 bits, and the word length of all computers were multiples of 6. An immediate negative consequence had been the limitation of character sets (ASCII and IBM's EBCDIC) to 64 characters. The extension to 256 characters was a welcome benefit.
 
@@ -350,7 +350,7 @@ E.W. Dijkstra then refined the theory and introduced the notion of *predicate tr
 
 Dijkstra was a leading member of the WG 2.1. and an ardent advocate of a scientific, mathematical, rigorous approach to programming. He was a strong critic of empirical approaches, of designing by trial and error, and an emphatic advocate of programming as mathematical engineering. Well-known remains his skepticism about program testing. He noted that testing can show the presence of errors, but never prove their absence. Another harsh dictum of his was "Do not give industry what it wants, but what it needs". He also chided that many people mix up conventional with convenient.
 
-Although it was soon realized that correctness proving was an arduous task, the influence of this development was strong on the discipline of programming. It was an incentive to keep languages simple and to proceed in programming always with correctness concerns in mind. But all his statements did not win Dijkstra admirerers only.
+Although it was soon realized that correctness proving was an arduous task, the influence of this development was strong on the discipline of programming. It was an incentive to keep languages simple and to proceed in programming always with correctness concerns in mind. But all his statements did not win Dijkstra admirerers only.
 
 The problems with correctness proofs are three-fold. First, the proofs become equally long, tedious, and perhaps error-prone as the programs themselves. Second, specifications of a program's pre-condition and post-condition are usually very complex, almost as complex as the programs themselves, or even worse. Third, most programmers lack the facilities to reason about formal logic to a degree required here. Nevertheless, this work on correctness proving exerted a distinct influence on how programs are now developed: With their proof in mind.
 
@@ -364,7 +364,7 @@ The Alto did not use one of these 8-bit microprocessors, but was built with disc
 
 Equally important was the fact that the memory size was sufficiently large to accommodate compilers for high-level languages for system programming. At Xerox, the language Mesa covered these needs. It represented a big extension of Pascal with several features deemed necessary to express particular facilities of the Alto hardware. Mesa definitely belonged to the second, if not third generation of programming languages. Like the Alto and its mouse, it was Xerox-proprietary.
 
-The implementation of Mesa rested on Mesa byte code. The compiler generated byte code (similar to Pascal's earlier P-code) and the Alto was *micro-programmed* to interpret its byte code. This interpreter resided permanently in a special, very fast microcode memory. This scheme allowed for a rather dense program code, and only through this design large programs could be fitted into the still rather limited main memory.
+The implementation of Mesa rested on Mesa byte code. The compiler generated byte code (similar to Pascal's earlier P-code) and the Alto was *micro-programmed* to interpret its byte code. This interpreter resided permanently in a special, very fast microcode memory. This scheme allowed for a rather dense program code, and only through this design large programs could be fitted into the still rather limited main memory.
 
 Another hallmark of the Alto was that all workstations were connected through a network, the 3-MHz Ethernet, a single wire bus. The concept of *servers* emerged. There was a server, a dedicated Alto, for a first laser printer, and one for a large, common file store.
 

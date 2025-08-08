@@ -28,7 +28,7 @@ To describe the syntax, an extended Backus-Naur Formalism called EBNF is used. B
 
 The following lexical rules must be observed when composing symbols. Blanks and line breaks must not occur within symbols (except in comments, and blanks in strings). They are ignored unless they are essential to separate two consecutive symbols. Capital and lower-case letters are considered as being distinct.
 
-*Identifiers* are sequences of letters and digits. The first character must be a letter.
+*Identifiers* are sequences of letters and digits. The first character must be a letter.
 
 ```EBNF
 ident = letter {letter | digit}.
@@ -88,7 +88,7 @@ Examples:
 
 ## 4. Declarations and scope rules
 
-Every identifier occurring in a program must be introduced by a declaration, unless it is a predefined identifier. Declarations also serve to specify certain permanent properties of an object, such as whether it is a constant, a type, a variable, or a procedure.
+Every identifier occurring in a program must be introduced by a declaration, unless it is a predefined identifier. Declarations also serve to specify certain permanent properties of an object, such as whether it is a constant, a type, a variable, or a procedure.
 
 The identifier is then used to refer to the associated object. This is possible in those parts of a program only which are within the scope of the declaration. No identifier may denote more than one object within a given scope. The scope extends textually from the point of the declaration to the end of the block (procedure or module) to which the declaration belongs and hence to which the object is local.
 
@@ -227,7 +227,7 @@ IdentList  = identdef {"," identdef}.
 
 If a record type is exported, field identifiers that are to be visible outside the declaring module must be marked. They are called *public fields*; unmarked fields are called *private fields*.
 
-Record types are extensible, i.e. a record type can be defined as an extension of another record type. In the examples above, `CenterNode` (directly) extends `Node`, which is the (direct) base type of `CenterNode`. More specifically, `CenterNode` extends `Node` with the fields `name` and `subnode`.
+Record types are extensible, i.e. a record type can be defined as an extension of another record type. In the examples above, `CenterNode` (directly) extends `Node`, which is the (direct) base type of `CenterNode`. More specifically, `CenterNode` extends `Node` with the fields `name` and `subnode`.
 
 *Definition*: A type `T` extends a type `T0`, if it equals `T0`, or if it directly extends an extension of `T0`. Conversely, a type `T0` is a base type of `T`, if it equals `T`, or if it is the direct base type of a base type of `T`.
 
@@ -463,7 +463,7 @@ assignment = designator ":=" expression.
 
 If a value parameter is structured (of array or record type), no assignment to it or to its elements are permitted. Neither may assignments be made to imported variables.
 
-The type of the expression must be the same as that of the designator. The following exceptions hold:
+The type of the expression must be the same as that of the designator. The following exceptions hold:
 
 1. The constant NIL can be assigned to variables of any pointer or procedure type.
 
@@ -518,7 +518,7 @@ IfStatement = IF expression THEN StatementSequence
 END.
 ```
 
-If statements specify the conditional execution of guarded statements. The Boolean expression preceding a statement is called its *guard*. The guards are evaluated in sequence of occurrence, until one evaluates to TRUE, whereafter its associated statement sequence is executed. If no guard is satisfied, the statement sequence following the symbol ELSE is executed, if there is one.
+If statements specify the conditional execution of guarded statements. The Boolean expression preceding a statement is called its *guard*. The guards are evaluated in sequence of occurrence, until one evaluates to TRUE, whereafter its associated statement sequence is executed. If no guard is satisfied, the statement sequence following the symbol ELSE is executed, if there is one.
 
 Example:
 
@@ -578,7 +578,7 @@ END
 
 ### 9.6. While statements
 
-While statements specify repetition. If any of the Boolean expressions (guards) yields TRUE, the corresponding statement sequence is executed. The expression evaluation and the statement execution are repeated until none of the Boolean expressions yields TRUE.
+While statements specify repetition. If any of the Boolean expressions (guards) yields TRUE, the corresponding statement sequence is executed. The expression evaluation and the statement execution are repeated until none of the Boolean expressions yields TRUE.
 
 ```EBNF
 WhileStatement = WHILE expression DO StatementSequence
@@ -826,7 +826,7 @@ END Out.
 
 The optional module SYSTEM contains definitions that are necessary to program low-level operations referring directly to resources particular to a given computer and/or implementation.
 
-These include for example facilities for accessing devices that are controlled by the computer, and perhaps facilities to break the data type compatibility rules otherwise imposed by the language definition.
+These include for example facilities for accessing devices that are controlled by the computer, and perhaps facilities to break the data type compatibility rules otherwise imposed by the language definition.
 
 There are two reasons for provoding facilites in Module SYSTEM; (1) Their value is implementation-dependent, that is, it is not derivable from the language's definition, and (2) they may corrupt a system (e.g. PUT). It is strongly recommended to restrict their use to specific low-level modules, as such modules are inherently non-portable and not "type-safe". However, they are easily recognized due to the identifier SYSTEM appearing in the module's import lists. The subsequent definitions are generally applicable. However, individual implementations may include in their module SYSTEM additional definitions that are particular to the specific, underlying computer. In the following, `v` stands for a variable, `x`, `a`, and `n` for expressions.
 

@@ -47,7 +47,7 @@ Set complementation is implemented by a not instruction, and inclusion follows f
 
     s0 ⊆ s1 ≡ s0 – s1 = {}
 
-Accordingly, the compiled code for the ARM processor and the following module consists of only a few instruction. Note that here we make use of the facility to have variables allocated in registers (here s0 in R0, s1 in R1, and s2 in R2).
+Accordingly, the compiled code for the ARM processor and the following module consists of only a few instruction. Note that here we make use of the facility to have variables allocated in registers (here s0 in R0, s1 in R1, and s2 in R2).
 
 ```oberon
 MODULE M;
