@@ -18,7 +18,7 @@ On the logical level, the innovation of John von Neumann (1944) made computers i
 
 ![Figure 1](fig1.svg)
 
-Von Neumann introduced two fundamental concepts. First, the two stores were united. This allowed the computer to generate data and then interpret them as instructions. Thereby, the computer mutated from a special purpose device (with always the same program) to a universal machine, the programmable computer. And this is what distinguishes the computer from all other technical devices up to this day.
+Von Neumann introduced two fundamental concepts. First, the two stores were united. This allowed the computer to generate data and then interpret them as instructions. Thereby, the computer mutated from a special purpose device (with always the same program) to a *universal machine*, the programmable computer. And this is what distinguishes the computer from all other technical devices up to this day.
 
 The second fundamental idea was the conditional instruction. It has a different result depending on previously computed values, i.e. the state of the machine.
 
