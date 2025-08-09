@@ -1,5 +1,5 @@
 <!---
-https://people.inf.ethz.ch/wirth/Oberon/Oberon07.Report.pdf
+source: https://people.inf.ethz.ch/wirth/Oberon/Oberon07.Report.pdf
 -->
 
 # The Programming Language Oberon
@@ -92,14 +92,14 @@ Every identifier occurring in a program must be introduced by a declaration, unl
 
 The identifier is then used to refer to the associated object. This is possible in those parts of a program only which are within the scope of the declaration. No identifier may denote more than one object within a given scope. The scope extends textually from the point of the declaration to the end of the block (procedure or module) to which the declaration belongs and hence to which the object is local.
 
-In its declaration, an identifier in the module's scope may be followed by an export mark (\*) to indicate that it be exported from its declaring module. In this case, the identifier may be used in other modules, if they import the declaring module. The identifier is then prefixed by the identifier designating its module (see Ch. 11). The prefix and the identifier are separated by a period and together are called a *qualified identifier*.
+In its declaration, an identifier in the module's scope may be followed by an export mark (\*) to indicate that it be exported from its declaring module. In this case, the identifier may be used in other modules, if they import the declaring module. The identifier is then prefixed by the identifier designating its module (see [Ch. 11](#11-modules)). The prefix and the identifier are separated by a period and together are called a *qualified identifier*.
 
 ```EBNF
 qualident = [ident "."] ident.
 identdef = ident ["*"].
 ```
 
-The following identifiers are predefined; their meaning is defined in section 6.1 (types) or 10.2 (procedures):
+The following identifiers are predefined; their meaning is defined in [section 6.1 (types)](#61-basic-types) or [10.2 (procedures)](#102-predefined-procedures):
 
     ABS     ASR    ASSERT    BOOLEAN    BYTE
     CHAR    CHR    DEC       EXCL       FLOOR
@@ -116,7 +116,7 @@ ConstDeclaration = identdef "=" ConstExpression.
 ConstExpression = expression.
 ```
 
-A constant expression can be evaluated by a mere textual scan without actually executing the program. Its operands are constants (see Ch. 8). Examples of constant declarations are:
+A constant expression can be evaluated by a mere textual scan without actually executing the program. Its operands are constants (see [Ch. 8](#8-expressions)). Examples of constant declarations are:
 
 ```oberon
 N     = 100
@@ -172,7 +172,7 @@ Function   = PROCEDURE (x: INTEGER): INTEGER
 
 ### 6.1. Basic types
 
-The following basic types are denoted by predeclared identifiers. The associated operators are defined in 8.2, and the predeclared function procedures in 10.2. The values of a given basic type are the following:
+The following basic types are denoted by predeclared identifiers. The associated operators are defined in [8.2](#operators), and the predeclared function procedures in [10.2](#102-predefined-procedures). The values of a given basic type are the following:
 
     BOOLEAN    the truth values TRUE and FALSE
     CHAR       the characters of a standard character set
@@ -215,7 +215,7 @@ ARRAY 10, 20 OF REAL
 
 ### 6.3. Record types
 
-A record type is a structure consisting of a fixed number of elements of possibly different types. The record type declaration specifies for each element, called *field*, its type and an identifier which denotes the field. The scope of these field identifiers is the record definition itself, but they are also visible within field designators (see 8.1) referring to elements of record variables.
+A record type is a structure consisting of a fixed number of elements of possibly different types. The record type declaration specifies for each element, called *field*, its type and an identifier which denotes the field. The scope of these field identifiers is the record definition itself, but they are also visible within field designators (see [8.1](#81-operands)) referring to elements of record variables.
 
 ```EBNF
 RecordType = RECORD ["(" BaseType ")"] [FieldListSequence] END.
@@ -256,11 +256,11 @@ PointerType = POINTER TO type.
 
 If a type `P` is defined as POINTER TO T, the identifier `T` can be declared textually following the declaration of `P`, but [if so] it must lie within the same scope.
 
-If `p` is a variable of type P = POINTER TO T, then a call of the predefined procedure NEW(p) has the following effect (see 10.2): A variable of type `T` is allocated in free storage, and a pointer to it is assigned to `p`. This pointer `p` is of type `P` and the referenced variable `p^` is of type `T`. Failure of allocation results in `p` obtaining the value `NIL`. Any pointer variable may be assigned the value `NIL`, which points to no variable at all.
+If `p` is a variable of type P = POINTER TO T, then a call of the predefined procedure NEW(p) has the following effect (see [10.2](#102-predefined-procedures)): A variable of type `T` is allocated in free storage, and a pointer to it is assigned to `p`. This pointer `p` is of type `P` and the referenced variable `p^` is of type `T`. Failure of allocation results in `p` obtaining the value `NIL`. Any pointer variable may be assigned the value `NIL`, which points to no variable at all.
 
 ### 6.5. Procedure types
 
-Variables of a procedure type `T` have a procedure (or NIL) as value. If a procedure `P` is assigned to a procedure variable of type `T`, the (types of the) formal parameters of `P` must be the same as those indicated in the formal parameters of `T`. The same holds for the result type in the case of a function procedure (see 10.1). `P` must not be declared local to another procedure, and neither can it be a standard procedure.
+Variables of a procedure type `T` have a procedure (or NIL) as value. If a procedure `P` is assigned to a procedure variable of type `T`, the (types of the) formal parameters of `P` must be the same as those indicated in the formal parameters of `T`. The same holds for the result type in the case of a function procedure (see [10.1](#101-formal-parameters)). `P` must not be declared local to another procedure, and neither can it be a standard procedure.
 
 ```EBNF
 ProcedureType = PROCEDURE [FormalParameters].
@@ -274,7 +274,7 @@ Variable declarations serve to introduce variables and associate them with ident
 VariableDeclaration = IdentList ":" type.
 ```
 
-Variables whose identifiers appear in the same list are all of the same type. Examples of variable declarations (refer to examples in Ch. 6):
+Variables whose identifiers appear in the same list are all of the same type. Examples of variable declarations (refer to examples in [Ch. 6](#6-type-declarations)):
 
 ```oberon
 i, j, k: INTEGER
@@ -317,7 +317,7 @@ Expressions are constructs denoting rules of computation whereby constants and c
 
 ### 8.1. Operands
 
-With the exception of sets and literal constants, i.e. numbers and strings, operands are denoted by *designators*. A designator consists of an identifier referring to the constant, variable, or procedure to be designated. This identifier may possibly be qualified by module identifiers (see Ch. 4 and 11), and it may be followed by selectors, if the designated object is an element of a structure.
+With the exception of sets and literal constants, i.e. numbers and strings, operands are denoted by *designators*. A designator consists of an identifier referring to the constant, variable, or procedure to be designated. This identifier may possibly be qualified by module identifiers (see [Ch. 4](#4-declarations-and-scope-rules) and [11](#11-modules)), and it may be followed by selectors, if the designated object is an element of a structure.
 
 If `A` designates an *array*, then `A[E]` denotes that element of `A` whose index is the current value of the expression `E`. The type of `E` must be of type INTEGER. A designator of the form `A[E1, E2, ... , En]` stands for `A[E1][E2] ... [En]`. If `p` designates a pointer variable, `p^` denotes the variable which is referenced by `p`. If `r` designates a record, then `r.f` denotes the field `f` of `r`. If `p` designates a pointer, `p.f` denotes the field `f` of the record `p^`, i.e. the dot implies dereferencing and `p.f` stands for `p^.f`.
 
@@ -333,9 +333,9 @@ selector = "." ident | "[" ExpList "]" | "^" | "(" qualident ")".
 ExpList = expression {"," expression}.
 ```
 
-If the designated object is a variable, then the designator refers to the variable's current value. If the object is a procedure, a designator without parameter list refers to that procedure. If it is followed by a (possibly empty) parameter list, the designator implies an activation of the procedure and stands for the value resulting from its execution. The (types of the) actual parameters must correspond to the formal parameters as specified in the procedure's declaration (see Ch. 10).
+If the designated object is a variable, then the designator refers to the variable's current value. If the object is a procedure, a designator without parameter list refers to that procedure. If it is followed by a (possibly empty) parameter list, the designator implies an activation of the procedure and stands for the value resulting from its execution. The (types of the) actual parameters must correspond to the formal parameters as specified in the procedure's declaration (see [Ch. 10](#10-procedure-declarations)).
 
-Examples of designators (see examples in Ch. 7):
+Examples of designators (see examples in [Ch. 7](#7-variable-declarations)):
 
     i                        (INTEGER)
     a[i]                     (REAL)
@@ -431,7 +431,7 @@ Relations are Boolean. The ordering relations <, <=, >, >= apply to the numeric 
 
 Assuming, for instance, that `T` is an extension of `T0` and that `v` is a designator declared of type `T0`, then the test `v IS T` determines whether the actually designated variable is (not only a `T0`, but also) a `T`. The value of `NIL IS T` is undefined.
 
-Examples of expressions (refer to examples in Ch. 7):
+Examples of expressions (refer to examples in [Ch. 7](#7-variable-declarations)):
 
     1987                (INTEGER)
     i DIV 3             (INTEGER)
@@ -473,7 +473,7 @@ The type of the expression must be the same as that of the designator. The follo
 
 4. An open array may be assigned to an array of equal base type.
 
-Examples of assignments (see examples in Ch. 7):
+Examples of assignments (see examples in [Ch. 7](#7-variable-declarations)):
 
     i := 0
     p := i = j
@@ -487,9 +487,9 @@ Examples of assignments (see examples in Ch. 7):
 
 ### 9.2. Procedure calls
 
-A procedure call serves to activate a procedure. The procedure call may contain a list of actual parameters which are substituted in place of their corresponding formal parameters defined in the procedure declaration (see Ch. 10). The correspondence is established by the positions of the parameters in the lists of actual and formal parameters respectively. There exist two kinds of parameters: variable and value parameters.
+A procedure call serves to activate a procedure. The procedure call may contain a list of actual parameters which are substituted in place of their corresponding formal parameters defined in the procedure declaration (see [Ch. 10](#10-procedure-declarations)). The correspondence is established by the positions of the parameters in the lists of actual and formal parameters respectively. There exist two kinds of parameters: variable and value parameters.
 
-In the case of variable parameters, the actual parameter must be a designator denoting a variable. If it designates an element of a structured variable, the selector is evaluated when the formal/actual parameter substitution takes place, i.e. before the execution of the procedure. If the parameter is a value parameter, the corresponding actual parameter must be an expression. This expression is evaluated prior to the procedure activation, and the resulting value is assigned to the formal parameter which now constitutes a local variable (see also 10.1.).
+In the case of variable parameters, the actual parameter must be a designator denoting a variable. If it designates an element of a structured variable, the selector is evaluated when the formal/actual parameter substitution takes place, i.e. before the execution of the procedure. If the parameter is a value parameter, the corresponding actual parameter must be an expression. This expression is evaluated prior to the procedure activation, and the resulting value is assigned to the formal parameter which now constitutes a local variable (see also [10.1](#101-formal-parameters)).
 
 ```EBNF
 ProcedureCall = designator [ActualParameters].
@@ -497,9 +497,19 @@ ProcedureCall = designator [ActualParameters].
 
 Examples of procedure calls:
 
-    ReadInt(i)            (see Ch. 10)
-    WriteInt(2*j + 1, 6)
-    INC(w[k].count)
+```oberon
+ReadInt(i)
+```
+
+(see [Ch. 10](#10-procedure-declarations))
+
+```oberon
+WriteInt(2*j + 1, 6)
+```
+
+```oberon
+INC(w[k].count)
+```
 
 ### 9.3. Statement sequences
 
