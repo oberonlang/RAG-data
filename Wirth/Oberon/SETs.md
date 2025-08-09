@@ -1,5 +1,5 @@
 <!---
-https://people.inf.ethz.ch/wirth/Oberon/SETs.pdf
+source: https://people.inf.ethz.ch/wirth/Oberon/SETs.pdf
 -->
 
 # SET: A neglected data type, and its compilation for the ARM
