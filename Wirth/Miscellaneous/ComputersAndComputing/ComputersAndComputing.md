@@ -262,7 +262,7 @@ While the Fortran, Cobol, and now PL/1 bandwagons were picking up speed, the aca
 
 Obviously, such a large group was ill-suited to produce a coherent design. There were long and irksome debates about various language features and constructs to be deleted from or added to Algol 60. There were obviously questionable, illdefined items in Algol 60, but although agreement on their deletion was unanimous, their replacement would cause long arguments. The principal "speakers of the house" were Aad van Wijngaarden from the Mathematisch Centrum in Amsterdam and Fritz Bauer from the Technical University in Munich. In heated discussions the emotions flew high and the antagonists even tore their collars.
 
-A particular source of lengthy arguments were procedure parameters. Algol 60 featured two, the value and the name-parameter. Some argued that the nameparameter was a distinctive feature, even a hallmark of Algol 60, others that it inherently degraded the efficiency of any implementation and was of little use (see chapter on B5000).
+A particular source of lengthy arguments were procedure parameters. Algol 60 featured two, the value and the name-parameter. Some argued that the nameparameter was a distinctive feature, even a hallmark of Algol 60, others that it inherently degraded the efficiency of any implementation and was of little use (see [chapter on B5000](#the-b-5000-1963)).
 
 There were other peculiarities of Algol 60 that caused puzzlement and heated discussion. Only one of them is exhibited by the following pathological but legal piece of program:
 
