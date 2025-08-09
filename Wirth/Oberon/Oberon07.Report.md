@@ -842,11 +842,11 @@ There are two reasons for providing facilities in Module SYSTEM; (1) Their value
 
 *Function procedures*:
 
-| Name      | Argument types | Result type | Function                |
-| --------- | -------------- | ----------- | ----------------------- |
-| ADR(v)    | any            | INTEGER     | address of variable `v` |
-| SIZE(T)   | any type       | INTEGER     | size in bytes           |
-| BIT(a, n) | a, n: INTEGER  | BOOLEAN     | bit n of mem[a]         |
+| Name      | Argument types | Result type | Function              |
+| --------- | -------------- | ----------- | --------------------- |
+| ADR(v)    | any            | INTEGER     | address of variable v |
+| SIZE(T)   | any type       | INTEGER     | size in bytes         |
+| BIT(a, n) | a, n: INTEGER  | BOOLEAN     | bit n of mem[a]       |
 
 *Proper procedures*:
 
